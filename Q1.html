@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script>
+      function findPeak(arr) {
+        for (let i = 1; i < arr.length - 1; i++) {
+          if (arr[i] >= arr[i - 1] && arr[i] >= arr[i + 1]) {
+            return arr[i];
+          }
+        }
+        return "No peak element found";
+      }
+
+      const array = [5, 10, 20, 15];
+      const peakElement = findPeak(array);
+      document.getElementById(
+        "root"
+      ).innerHTML = `Peak Element: ${peakElement}`;
+    </script>
+  </body>
+</html>
