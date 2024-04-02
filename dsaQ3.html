@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palindrome Number Checker</title>
+</head>
+<body>
+  <h1>Palindrome Number Checker</h1>
+  <label for="numberInput">Enter a Number:</label>
+  <input type="text" id="numberInput">
+  <button onclick="checkPalindrome()">Check</button>
+  <p id="result"></p>
+
+  <script>
+    function checkPalindrome() {
+      var number = document.getElementById("numberInput").value;
+      var reversedNumber = parseInt(number.toString().split('').reverse().join(''));
+
+      if (parseInt(number) === reversedNumber) {
+        document.getElementById("result").innerText = number + " is a palindrome number.";
+      } else {
+        document.getElementById("result").innerText = number + " is not a palindrome number.";
+      }
+    }
+  </script>
+</body>
+</html>
