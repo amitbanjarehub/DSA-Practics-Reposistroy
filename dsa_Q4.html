@@ -1,0 +1,45 @@
+<!-- Q4: You are given an unsorted array containing ‘N’ integers. You need to find ‘K’ largest elements from the given array. Also, you need to return the elements in non-decreasing order.  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K Largest Elements</title>
+</head>
+<body>
+
+<h2>Find K Largest Elements in Array</h2>
+<p>Enter the array of integers separated by commas:</p>
+<input type="text" id="inputArray">
+<p>Enter the value of K:</p>
+<input type="number" id="kValue">
+<button onclick="findKLargestElements()">Find K Largest Elements</button>
+<p id="result"></p>
+
+<script>
+function findKLargestElements() {
+    const inputArray = document.getElementById("inputArray").value.split(",").map(Number);
+    const k = parseInt(document.getElementById("kValue").value);
+    
+    if (isNaN(k)) {
+        document.getElementById("result").innerHTML = "Please enter a valid value for K.";
+        return;
+    }
+    
+    if (inputArray.length === 0 || k <= 0 || k > inputArray.length) {
+        document.getElementById("result").innerHTML = "Invalid input or K value.";
+        return;
+    }
+
+    inputArray.sort((a, b) => a - b); // Sorting array in non-decreasing order
+
+    const kLargestElements = inputArray.slice(-k).reverse(); // Extracting K largest elements in non-decreasing order
+
+    document.getElementById("result").innerHTML = "K Largest Elements: " + kLargestElements.join(", ");
+}
+</script>
+
+</body>
+</html>
