@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pattern Generator</title>
+<style>
+  /* Style for the pattern */
+  .pattern {
+    display: grid;
+    grid-template-columns: repeat(5, 50px); /* Adjust as needed */
+    grid-template-rows: repeat(5, 50px); /* Adjust as needed */
+    gap: 5px; /* Adjust as needed */
+  }
+
+  /* Style for each cell of the pattern */
+  .cell {
+    background-color: lightblue; /* Adjust as needed */
+    border: 1px solid gray;
+    width: 50px; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="pattern" id="pattern"></div>
+
+<script>
+  // JavaScript code to generate the pattern
+  const patternElement = document.getElementById('pattern');
+
+  // Define the size of the pattern (number of rows and columns)
+  const rows = 5;
+  const columns = 5;
+
+  // Loop to generate cells for the pattern
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < columns; j++) {
+      const cell = document.createElement('div');
+      cell.classList.add('cell');
+      cell.textContent = `${i + 1}, ${j + 1}`; // Example content, you can customize this
+      patternElement.appendChild(cell);
+    }
+  }
+</script>
+
+</body>
+</html>
