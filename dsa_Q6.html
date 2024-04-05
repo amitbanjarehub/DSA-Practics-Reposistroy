@@ -1,0 +1,50 @@
+<!-- Find a peak element which is not smaller than its neighbours
+Given an array arr of n elements that is first strictly increasing and then maybe strictly decreasing, find the maximum element in the array.
+
+Note: If the array is increasing then just print the last element will be the maximum value.
+
+Example:
+
+Input: array[]= {5, 10, 20, 15}
+Output: 20
+Explanation: The element 20 has neighbors 10 and 15, both of them are less than 20.  i want to solution in html javascript -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find Peak Element</title>
+    <script>
+        function findPeakElement(arr) {
+            // If the array is strictly increasing, return the last element
+            if (arr[arr.length - 1] > arr[arr.length - 2]) {
+                return arr[arr.length - 1];
+            }
+
+            // Otherwise, iterate through the array to find the peak element
+            for (let i = 1; i < arr.length - 1; i++) {
+                if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) {
+                    return arr[i];
+                }
+            }
+
+            // If no peak element is found, return -1 or any default value
+            return -1;
+        }
+
+        function findPeak() {
+            const input = document.getElementById('arrayInput').value;
+            const arr = input.split(',').map(Number);
+            const peakElement = findPeakElement(arr);
+            document.getElementById('result').innerText = `Peak Element: ${peakElement}`;
+        }
+    </script>
+</head>
+<body>
+    <h2>Find Peak Element</h2>
+    <label for="arrayInput">Enter array elements (comma-separated):</label>
+    <input type="text" id="arrayInput">
+    <button onclick="findPeak()">Find Peak</button>
+    <div id="result"></div>
+</body>
+</html>
