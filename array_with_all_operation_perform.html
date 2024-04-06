@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Operations Example</title>
+  </head>
+  <body>
+    <h2>Array Operations Example</h2>
+
+    <p>My Array data is: <b><span id="first"></span></b></p>
+    
+    <p>Accessing Array index 2 data is: <b><span id="second"></span></b></p>
+
+    <p>Insertion at the end of Array  data is: <b><span id="third"></span></b></p>
+
+    <p>Insertion at the beginning of Array  data is: <b><span id="four"></span></b></p>
+
+    <p>After deleting element <b><span id="fiveA"></span></b> from the end of Array  data is: <b><span id="five"></span></b></p>
+
+    <p>Deletion from the beginning of Array  data is: <b><span id="six"></span></b></p>
+
+    <p>I want to searchindex of 3 Array  data is: <b><span id="seven"></span></b></p>
+
+    <p>Sorting Array  data is: <b><span id="eight"></span></b></p>
+    <script>
+      // Define an array
+      let numbers = [113, 104, 151, 146, 171];
+      document.getElementById("first").innerHTML = numbers;
+      // Accessing an element
+      console.log("Accessing element at index 2:", numbers[2]);
+      document.getElementById("second").innerHTML = numbers[2];
+      // Insertion at the end
+      numbers.push(26);
+      console.log("After inserting 6 at the end:", numbers);
+      document.getElementById("third").innerHTML = numbers;
+
+      // Insertion at the beginning
+      numbers.unshift(10);
+      console.log("After inserting 0 at the beginning:", numbers);
+      document.getElementById("four").innerHTML = numbers;
+
+      // Deletion from the end
+      let poppedElement = numbers.pop();
+      console.log("After deleting element from the end:", numbers);
+      console.log("Popped element:", poppedElement);
+      document.getElementById("fiveA").innerHTML = poppedElement;
+      document.getElementById("five").innerHTML = numbers;
+      // Deletion from the beginning
+      let shiftedElement = numbers.shift();
+      console.log("After deleting element from the beginning:", numbers);
+      console.log("Shifted element:", shiftedElement);
+      document.getElementById("six").innerHTML = numbers;
+
+      // Search
+      let searchElement = 3; // Change to 3
+      let index = numbers.indexOf(searchElement);
+      console.log(`Index of ${searchElement}:`, index);
+      document.getElementById("seven").innerHTML = index;
+      // Sorting
+      numbers.sort((a, b) => a - b);
+      console.log("Sorted array:", numbers);
+      document.getElementById("eight").innerHTML = numbers;
+      // Reversing
+      numbers.reverse();
+      console.log("Reversed array:", numbers);
+    </script>
+  </body>
+</html>
