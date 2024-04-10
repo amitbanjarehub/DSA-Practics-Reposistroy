@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Peak Element Finder</title>
+    <script>
+        function findPeak(arr) {
+            // Check if array is empty
+            if (arr.length === 0) {
+                return -1; // No peak element found
+            }
+
+            // Check for edge cases (first and last elements)
+            if (arr.length === 1 || arr[0] >= arr[1]) {
+                return arr[0]; // First element is a peak
+            }
+            if (arr[arr.length - 1] >= arr[arr.length - 2]) {
+                return arr[arr.length - 1]; // Last element is a peak
+            }
+
+            // Iterate through the array to find the peak
+            for (let i = 1; i < arr.length - 1; i++) {
+                if (arr[i] >= arr[i - 1] && arr[i] >= arr[i + 1]) {
+                    return arr[i]; // Peak found
+                }
+            }
+
+            return -1; // No peak element found
+        }
+
+        function findPeakAndDisplay() {
+            const inputArray = document.getElementById("inputArray").value
+                .split(",")
+                .map(Number);
+
+            const peakElement = findPeak(inputArray);
+            document.getElementById("result").innerText = `Peak element is: ${peakElement}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Peak Element Finder</h1>
+    <label for="inputArray">Enter array elements (comma-separated):</label>
+    <input type="text" id="inputArray">
+    <button onclick="findPeakAndDisplay()">Find Peak Element</button>
+    <div id="result"></div>
+</body>
+</html>
